@@ -179,6 +179,33 @@ footer{background:#04080F;color:rgba(255,255,255,0.35);padding:48px 5% 24px;bord
 .g-item-label span{font-size:11px;font-family:'Inter',sans-serif;font-weight:600;color:white;letter-spacing:1px;text-transform:uppercase}
 
 /* LIGHTBOX */
+/* CLASS DRAWER */
+.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:900;opacity:0;pointer-events:none;transition:opacity 0.3s ease}
+.drawer-overlay.open{opacity:1;pointer-events:all}
+.class-drawer{position:fixed;top:0;right:0;bottom:0;width:min(520px,100vw);background:var(--white);z-index:901;transform:translateX(100%);transition:transform 0.38s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;display:flex;flex-direction:column}
+.class-drawer.open{transform:translateX(0)}
+.drawer-hero{height:220px;background-size:cover;background-position:center;position:relative;flex-shrink:0}
+.drawer-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.72) 0%,rgba(0,0,0,0.18) 100%)}
+.drawer-close{position:absolute;top:16px;right:16px;width:36px;height:36px;background:rgba(0,0,0,0.45);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.drawer-close svg{width:18px;height:18px;stroke:white;stroke-width:2.5;fill:none}
+.drawer-num{position:absolute;bottom:20px;left:28px;font-family:'Barlow',sans-serif;font-size:64px;font-weight:800;color:rgba(255,255,255,0.1);line-height:1}
+.drawer-body{padding:32px 28px 40px;flex:1}
+.drawer-age-tag{display:inline-block;font-size:10px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--pink);background:var(--pink-dim);border:1px solid rgba(224,69,106,0.2);padding:4px 12px;margin-bottom:14px}
+.drawer-title{font-family:'Barlow',sans-serif;font-size:34px;font-weight:800;color:var(--dark);line-height:1;margin-bottom:12px}
+.drawer-desc{font-size:15px;font-family:'Inter',sans-serif;color:var(--mid);line-height:1.75;margin-bottom:28px}
+.drawer-meta{display:flex;flex-direction:column;gap:12px;padding:20px;background:var(--bg);margin-bottom:24px}
+.drawer-meta-row{display:flex;align-items:flex-start;gap:14px}
+.drawer-meta-icon{width:34px;height:34px;background:var(--white);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.drawer-meta-icon svg{width:15px;height:15px;stroke:var(--pink);stroke-width:2;fill:none}
+.drawer-meta-text strong{display:block;font-size:11px;font-family:'Inter',sans-serif;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.drawer-meta-text span{font-size:14px;font-family:'Inter',sans-serif;font-weight:500;color:var(--text)}
+.drawer-learn-title{font-size:11px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.drawer-learn-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:32px}
+.drawer-learn-list li{display:flex;align-items:center;gap:10px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text)}
+.drawer-learn-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--pink);flex-shrink:0}
+.drawer-enroll{width:100%;background:var(--pink);color:white;border:none;padding:16px;font-size:14px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:0.5px;cursor:pointer;transition:background 0.2s}
+.drawer-enroll:hover{background:#c73a5e}
+
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.96);z-index:999;display:none;align-items:center;justify-content:center;flex-direction:column;gap:16px}
 .lightbox.open{display:flex}
 .lightbox-close{position:absolute;top:20px;right:28px;font-size:36px;color:white;cursor:pointer;font-family:'Inter',sans-serif;font-weight:300;line-height:1;background:none;border:none}
@@ -294,7 +321,7 @@ footer{background:#04080F;color:rgba(255,255,255,0.35);padding:48px 5% 24px;bord
       <button class="btn-secondary" onclick="goToSection('enroll')">Enroll in a Batch →</button>
     </div>
     <div class="class-list">
-      <div class="class-item fade-up" style="background-image:url('Featured-Image-5.jpg');background-position:center 30%">
+      <div class="class-item fade-up" style="background-image:url('Featured-Image-5.jpg');background-position:center 30%" onclick="openDrawer('tiny-tots')">
         <div class="class-item-overlay"></div>
         <div class="class-item-inner">
           <div class="class-item-num">01</div>
@@ -304,7 +331,7 @@ footer{background:#04080F;color:rgba(255,255,255,0.35);padding:48px 5% 24px;bord
           <svg class="class-item-arrow" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </div>
-      <div class="class-item fade-up" style="background-image:url('images.jpeg');transition-delay:0.06s">
+      <div class="class-item fade-up" style="background-image:url('images.jpeg');transition-delay:0.06s" onclick="openDrawer('beginners')">
         <div class="class-item-overlay"></div>
         <div class="class-item-inner">
           <div class="class-item-num">02</div>
@@ -314,7 +341,7 @@ footer{background:#04080F;color:rgba(255,255,255,0.35);padding:48px 5% 24px;bord
           <svg class="class-item-arrow" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </div>
-      <div class="class-item fade-up" style="background-image:url('gymnast-pose.jpg');background-position:center 30%;transition-delay:0.12s">
+      <div class="class-item fade-up" style="background-image:url('gymnast-pose.jpg');background-position:center 30%;transition-delay:0.12s" onclick="openDrawer('intermediate')">
         <div class="class-item-overlay"></div>
         <div class="class-item-inner">
           <div class="class-item-num">03</div>
@@ -324,7 +351,7 @@ footer{background:#04080F;color:rgba(255,255,255,0.35);padding:48px 5% 24px;bord
           <svg class="class-item-arrow" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </div>
-      <div class="class-item fade-up" style="background-image:url('Safe-Gymnastics-Training.jpg');transition-delay:0.18s">
+      <div class="class-item fade-up" style="background-image:url('Safe-Gymnastics-Training.jpg');transition-delay:0.18s" onclick="openDrawer('advanced')">
         <div class="class-item-overlay"></div>
         <div class="class-item-inner">
           <div class="class-item-num">04</div>
@@ -334,7 +361,7 @@ footer{background:#04080F;color:rgba(255,255,255,0.35);padding:48px 5% 24px;bord
           <svg class="class-item-arrow" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </div>
-      <div class="class-item fade-up" style="background-image:url('images-3.jpeg');transition-delay:0.24s">
+      <div class="class-item fade-up" style="background-image:url('images-3.jpeg');transition-delay:0.24s" onclick="openDrawer('artistic')">
         <div class="class-item-overlay"></div>
         <div class="class-item-inner">
           <div class="class-item-num">05</div>
@@ -344,7 +371,7 @@ footer{background:#04080F;color:rgba(255,255,255,0.35);padding:48px 5% 24px;bord
           <svg class="class-item-arrow" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </div>
-      <div class="class-item fade-up" style="background-image:url('images-2.jpeg');background-position:center 75%;transition-delay:0.30s">
+      <div class="class-item fade-up" style="background-image:url('images-2.jpeg');background-position:center 75%;transition-delay:0.30s" onclick="openDrawer('adult')">
         <div class="class-item-overlay"></div>
         <div class="class-item-inner">
           <div class="class-item-num">06</div>
@@ -728,6 +755,40 @@ footer{background:#04080F;color:rgba(255,255,255,0.35);padding:48px 5% 24px;bord
 </div><!-- /page-about -->
 
 <!-- LIGHTBOX -->
+<!-- CLASS DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+<div class="class-drawer" id="classDrawer">
+  <div class="drawer-hero" id="drawerHero">
+    <div class="drawer-hero-overlay"></div>
+    <button class="drawer-close" onclick="closeDrawer()">
+      <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="drawer-num" id="drawerNum"></div>
+  </div>
+  <div class="drawer-body">
+    <div class="drawer-age-tag" id="drawerAge"></div>
+    <div class="drawer-title" id="drawerTitle"></div>
+    <div class="drawer-desc" id="drawerDesc"></div>
+    <div class="drawer-meta">
+      <div class="drawer-meta-row">
+        <div class="drawer-meta-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div class="drawer-meta-text"><strong>Schedule</strong><span id="drawerDays"></span></div>
+      </div>
+      <div class="drawer-meta-row">
+        <div class="drawer-meta-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="drawer-meta-text"><strong>Timing</strong><span id="drawerTime"></span></div>
+      </div>
+      <div class="drawer-meta-row">
+        <div class="drawer-meta-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="drawer-meta-text"><strong>Coach</strong><span id="drawerCoach"></span></div>
+      </div>
+    </div>
+    <div class="drawer-learn-title">What You'll Learn</div>
+    <ul class="drawer-learn-list" id="drawerLearn"></ul>
+    <button class="drawer-enroll" onclick="closeDrawer();goToSection('enroll')">Enroll in This Batch →</button>
+  </div>
+</div>
+
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
   <div class="lightbox-img" id="lightbox-img" onclick="event.stopPropagation()"></div>
@@ -781,6 +842,70 @@ function filterGallery(btn, cat) {
   });
 }
 
+var classData = {
+  'tiny-tots': {
+    num:'01', title:'Tiny Tots', age:'Ages 3 – 5', img:'Featured-Image-5.jpg',
+    desc:'A playful introduction to gymnastics for the youngest learners. Every session is designed to build confidence, improve coordination and make movement joyful through games and structured play.',
+    days:'Tuesday & Thursday', time:'10:00 AM – 11:00 AM', coach:'Priya Sharma',
+    learn:['Basic balance and body coordination','Fun tumbling and rolling movements','Listening and following instructions','Flexibility and spatial awareness','Building confidence through play']
+  },
+  'beginners': {
+    num:'02', title:'Beginners', age:'Ages 6 – 9', img:'images.jpeg',
+    desc:'A structured foundation batch for children new to gymnastics. Students learn correct technique, safe falling, and build strength through progressive drills in a supportive group environment.',
+    days:'Monday, Wednesday & Friday', time:'5:30 PM – 6:30 PM', coach:'Rahul Mehta',
+    learn:['Forward and backward rolls','Cartwheels and round-offs','Handstand progressions','Basic uneven bar work','Safe landing and falling technique']
+  },
+  'intermediate': {
+    num:'03', title:'Intermediate', age:'Ages 9 – 13', img:'gymnast-pose.jpg',
+    desc:'For students who have mastered the basics and are ready to progress to more dynamic skills. This batch covers advanced tumbling, apparatus work and the beginnings of routine building.',
+    days:'Monday, Wednesday & Friday', time:'4:00 PM – 5:30 PM', coach:'Ananya Verma',
+    learn:['Back walkovers and aerials','Round-off back handsprings','Balance beam routines','Uneven bars — swings and releases','Floor exercise choreography']
+  },
+  'advanced': {
+    num:'04', title:'Advanced & Competitive', age:'Ages 12 – 17', img:'Safe-Gymnastics-Training.jpg',
+    desc:'Intensive training for students targeting district, state and national-level competitions. Focus is on perfecting full routines, peak physical conditioning and competition mindset.',
+    days:'Monday to Friday', time:'6:30 AM – 8:00 AM', coach:'Kiran Joshi',
+    learn:['Full competition-level routines','Strength and conditioning drills','Deduction analysis and corrections','Competition strategy and mental prep','Video review and performance feedback']
+  },
+  'artistic': {
+    num:'05', title:'Artistic Gymnastics', age:'Ages 10 – 18', img:'images-3.jpeg',
+    desc:'A specialised programme covering all four women\'s artistic events — vault, uneven bars, balance beam and floor. Ideal for students with ambitions to compete at state and national level.',
+    days:'Tuesday, Thursday & Saturday', time:'5:00 PM – 7:00 PM', coach:'Deepa Nair',
+    learn:['Vault approach and block technique','Uneven bar giants and releases','Balance beam acrobatics and dance','Floor exercise with music','Event-specific strength training']
+  },
+  'adult': {
+    num:'06', title:'Adult Fitness Gymnastics', age:'Ages 18+', img:'images-2.jpeg',
+    desc:'Designed for adults who want to improve flexibility, build core strength and experience the joy of gymnastics without any prior background. All fitness levels welcome.',
+    days:'Saturday & Sunday', time:'8:00 AM – 9:30 AM', coach:'Priya Sharma',
+    learn:['Core and upper body strength','Full-body flexibility and stretching','Basic gymnastics movement patterns','Handstand and cartwheel progressions','Stress relief through movement']
+  }
+};
+
+function openDrawer(id) {
+  var d = classData[id];
+  if (!d) return;
+  document.getElementById('drawerHero').style.backgroundImage = "url('" + d.img + "')";
+  document.getElementById('drawerNum').textContent = d.num;
+  document.getElementById('drawerAge').textContent = d.age;
+  document.getElementById('drawerTitle').textContent = d.title;
+  document.getElementById('drawerDesc').textContent = d.desc;
+  document.getElementById('drawerDays').textContent = d.days;
+  document.getElementById('drawerTime').textContent = d.time;
+  document.getElementById('drawerCoach').textContent = d.coach;
+  var list = document.getElementById('drawerLearn');
+  list.innerHTML = '';
+  d.learn.forEach(function(item){ var li = document.createElement('li'); li.textContent = item; list.appendChild(li); });
+  document.getElementById('drawerOverlay').classList.add('open');
+  document.getElementById('classDrawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDrawer() {
+  document.getElementById('drawerOverlay').classList.remove('open');
+  document.getElementById('classDrawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
 function openLightbox(caption, imgSrc) {
   document.getElementById('lightbox-caption').textContent = caption;
   document.getElementById('lightbox-img').style.backgroundImage = "url('" + imgSrc + "')";
@@ -794,7 +919,7 @@ function closeLightbox() {
 }
 
 document.addEventListener('keydown', function(e){
-  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'Escape') { closeLightbox(); closeDrawer(); }
 });
 
 var observer = new IntersectionObserver(function(entries){
