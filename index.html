@@ -182,7 +182,7 @@ footer{background:#04080F;color:rgba(255,255,255,0.35);padding:48px 5% 24px;bord
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.96);z-index:999;display:none;align-items:center;justify-content:center;flex-direction:column;gap:16px}
 .lightbox.open{display:flex}
 .lightbox-close{position:absolute;top:20px;right:28px;font-size:36px;color:white;cursor:pointer;font-family:'Inter',sans-serif;font-weight:300;line-height:1;background:none;border:none}
-.lightbox-img{width:600px;height:400px;display:flex;align-items:center;justify-content:center}
+.lightbox-img{width:min(90vw,860px);height:min(80vh,560px);background-size:contain;background-repeat:no-repeat;background-position:center}
 .lightbox-caption{font-size:14px;font-family:'Inter',sans-serif;font-weight:500;color:rgba(255,255,255,0.45);letter-spacing:0.5px}
 
 /* WHATSAPP FLOAT */
@@ -605,51 +605,51 @@ footer{background:#04080F;color:rgba(255,255,255,0.35);padding:48px 5% 24px;bord
         <button class="filter-btn" onclick="filterGallery(this,'team')">Our Team</button>
       </div>
       <div class="gallery-full-grid">
-        <div class="g-item" data-cat="training" onclick="openLightbox('Floor Training — Beginners Batch')">
+        <div class="g-item" data-cat="training" onclick="openLightbox('Floor Training — Beginners Batch','unnamed-11.jpg')">
           <div class="g-item-inner" style="background-image:url('unnamed-11.jpg')"></div>
           <div class="g-item-label"><span>Floor Training</span></div>
         </div>
-        <div class="g-item" data-cat="training" onclick="openLightbox('Balance Beam — Intermediate Batch')">
+        <div class="g-item" data-cat="training" onclick="openLightbox('Balance Beam — Intermediate Batch','unnamed-10.jpg')">
           <div class="g-item-inner" style="background-image:url('unnamed-10.jpg')"></div>
           <div class="g-item-label"><span>Balance Beam</span></div>
         </div>
-        <div class="g-item" data-cat="competition" onclick="openLightbox('District Championship 2023')">
+        <div class="g-item" data-cat="competition" onclick="openLightbox('District Championship 2023','unnamed-9.jpg')">
           <div class="g-item-inner" style="background-image:url('unnamed-9.jpg')"></div>
           <div class="g-item-label"><span>District Championship</span></div>
         </div>
-        <div class="g-item" data-cat="training" onclick="openLightbox('Vault Practice — Advanced Batch')">
+        <div class="g-item" data-cat="training" onclick="openLightbox('Vault Practice — Advanced Batch','unnamed-8.jpg')">
           <div class="g-item-inner" style="background-image:url('unnamed-8.jpg')"></div>
           <div class="g-item-label"><span>Vault Practice</span></div>
         </div>
-        <div class="g-item" data-cat="competition" onclick="openLightbox('State Level Competition 2023')">
+        <div class="g-item" data-cat="competition" onclick="openLightbox('State Level Competition 2023','unnamed-7.jpg')">
           <div class="g-item-inner" style="background-image:url('unnamed-7.jpg')"></div>
           <div class="g-item-label"><span>State Competition</span></div>
         </div>
-        <div class="g-item" data-cat="events" onclick="openLightbox('Annual Showcase 2023')">
+        <div class="g-item" data-cat="events" onclick="openLightbox('Annual Showcase 2023','unnamed-6.jpg')">
           <div class="g-item-inner" style="background-image:url('unnamed-6.jpg')"></div>
           <div class="g-item-label"><span>Annual Showcase</span></div>
         </div>
-        <div class="g-item" data-cat="training" onclick="openLightbox('Conditioning Session — Morning Batch')">
+        <div class="g-item" data-cat="training" onclick="openLightbox('Conditioning Session — Morning Batch','unnamed-5.jpg')">
           <div class="g-item-inner" style="background-image:url('unnamed-5.jpg')"></div>
           <div class="g-item-label"><span>Conditioning</span></div>
         </div>
-        <div class="g-item" data-cat="team" onclick="openLightbox('Coaching Team 2024')">
+        <div class="g-item" data-cat="team" onclick="openLightbox('Coaching Team 2024','unnamed-4.jpg')">
           <div class="g-item-inner" style="background-image:url('unnamed-4.jpg')"></div>
           <div class="g-item-label"><span>Coaching Team</span></div>
         </div>
-        <div class="g-item" data-cat="events" onclick="openLightbox('Kids Summer Camp 2023')">
+        <div class="g-item" data-cat="events" onclick="openLightbox('Kids Summer Camp 2023','unnamed-3.jpg')">
           <div class="g-item-inner" style="background-image:url('unnamed-3.jpg')"></div>
           <div class="g-item-label"><span>Summer Camp</span></div>
         </div>
-        <div class="g-item" data-cat="competition" onclick="openLightbox('National Trials — Pune 2023')">
+        <div class="g-item" data-cat="competition" onclick="openLightbox('National Trials — Pune 2023','unnamed-2.jpg')">
           <div class="g-item-inner" style="background-image:url('unnamed-2.jpg')"></div>
           <div class="g-item-label"><span>National Trials</span></div>
         </div>
-        <div class="g-item" data-cat="training" onclick="openLightbox('Uneven Bars — Artistic Batch')">
+        <div class="g-item" data-cat="training" onclick="openLightbox('Uneven Bars — Artistic Batch','unnamed.jpg')">
           <div class="g-item-inner" style="background-image:url('unnamed.jpg')"></div>
           <div class="g-item-label"><span>Uneven Bars</span></div>
         </div>
-        <div class="g-item" data-cat="team" onclick="openLightbox('Year End Celebration 2023')">
+        <div class="g-item" data-cat="team" onclick="openLightbox('Year End Celebration 2023','unnamed-11.jpg')">
           <div class="g-item-inner" style="background-image:url('unnamed-11.jpg')"></div>
           <div class="g-item-label"><span>Year End Celebration</span></div>
         </div>
@@ -730,7 +730,7 @@ footer{background:#04080F;color:rgba(255,255,255,0.35);padding:48px 5% 24px;bord
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
-  <div class="lightbox-img" onclick="event.stopPropagation()" style="background:#1a1a1a;border:1px solid #333"></div>
+  <div class="lightbox-img" id="lightbox-img" onclick="event.stopPropagation()"></div>
   <div class="lightbox-caption" id="lightbox-caption"></div>
 </div>
 
@@ -781,8 +781,9 @@ function filterGallery(btn, cat) {
   });
 }
 
-function openLightbox(caption) {
+function openLightbox(caption, imgSrc) {
   document.getElementById('lightbox-caption').textContent = caption;
+  document.getElementById('lightbox-img').style.backgroundImage = "url('" + imgSrc + "')";
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
